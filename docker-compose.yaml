@@ -1,0 +1,25 @@
+version: "2.15.1"
+
+services:
+  app:
+    build: ./App
+    environment:
+      - BotToken=6002834470:AAFNUN4f-nkkfl8QNZUkC9OqxJku46B1aM4
+      - DbConn=Server=mssql;Database=SsbotDb;User Id=sa;Password=SaPassword_1;
+    volumes:
+      - D:\SearchShelterBot\logs:/logs
+    depends_on:
+      - mssql
+    restart: always
+
+  mssql:
+    build: ./Db
+    ports: 
+      - 1433:1433
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=SaPassword_1
+    volumes:
+      - D:\SearchShelterBot\data:/data
+    container_name: mssql
+    restart: always
