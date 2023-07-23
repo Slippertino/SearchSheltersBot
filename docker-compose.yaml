@@ -4,7 +4,7 @@ services:
   app:
     build: ./App
     environment:
-      - BotToken=6002834470:AAFNUN4f-nkkfl8QNZUkC9OqxJku46B1aM4
+      - BotToken=<token>
       - DbConn=Server=mssql;Database=SsbotDb;User Id=sa;Password=SaPassword_1;
     volumes:
       - D:\SearchShelterBot\logs:/logs
